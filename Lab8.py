@@ -6,7 +6,7 @@
 #Note that this function will include call(s) to the input function
 #Keep prompting until the number is an integer. 
 #Returns the number of Tests
-def getNumberOfTests(prompt):
+def getNumberOfTests():
     while True:
         try:
             tests = int(input("Please enter the number of tests: "))
@@ -21,17 +21,17 @@ def getNumberOfTests(prompt):
 #Note that this function will include call(s) to the input function
 #Keep prompting until the number is a float >= 0 and <= 1
 #Returns the weight of assignments
-def getWeightOfAssignments(prompt):
+def getWeightOfAssignments():
     while True:
         try:
             wAssign = float(input("Please enter the weigth of Assignments: "))
         except ValueError:
             print("Please enter a float number between 0 and 1.")
-            return getWeightOfAssignments(prompt)
+            return getWeightOfAssignments()
     
         if wAssign < 0 or wAssign > 1:
                 print("Please enter a float number between 0 and 1.")
-                return getWeightOfAssignments(prompt)
+                return getWeightOfAssignments()
         else:
             return wAssign
 
@@ -39,17 +39,17 @@ def getWeightOfAssignments(prompt):
 #Note that this function will include call(s) to the input function
 #Keep prompting until the number is a float >= 0 and <= 1
 #Returns the weight of midterms
-def getWeightOfMidTerms(prompt):
+def getWeightOfMidTerms():
     while True:
         try:
             wMidTerm = float(input("Please enter the weigth of midterms: "))
         except ValueError:
             print("Please enter a float number between 0 and 1.")
-            return getWeightOfMidTerms(prompt)
+            return getWeightOfMidTerms()
    
         if wMidTerm < 0 or wMidTerm > 1:
                 print("Please enter a float number between 0 and 1.")
-                return getWeightOfMidTerms(prompt)
+                return getWeightOfMidTerms()
         else:
             return wMidTerm
 
@@ -57,17 +57,17 @@ def getWeightOfMidTerms(prompt):
 #Note that this function will include call(s) to the input function
 #Keep prompting until the number is a float >= 0 and <= 1
 #Returns the weight of final
-def getWeightOfFinal(prompt):
+def getWeightOfFinal():
     while True:
         try:
             wFinal = float(input("Please enter the weigth of final: "))
         except ValueError:
             print("Please enter a float number between 0 and 1.")
-            return getWeightOfFinal(prompt)
+            return getWeightOfFinal()
     
         if wFinal < 0 or wFinal > 1:
             print("Please enter a float number between 0 and 1.")
-            return getWeightOfFinal(prompt)
+            return getWeightOfFinal()
         else:
             return wFinal
 
@@ -123,9 +123,9 @@ def calculateLetterGrade(numericGrade):
 #Check the sum of weight values is 1 (call the appropriate function)
 #Repeat the last four lines if not equal to 1
 while 1:
-    getWeightOfAssignments(prompt)
-    getWeightOfMidTerms(prompt)
-    getWeightOfFinal(prompt)
+    getWeightOfAssignments()
+    getWeightOfMidTerms()
+    getWeightOfFinal()
     if wAssign + wMidTerm + wFinal == 1: 
         break 
 #Get the average grade obtained on the assignments
@@ -138,7 +138,7 @@ while 1:
 #Prompt the user for each test grades and accumulate the value
 #Validate the input as a float between 0 and 100
 #Calculate the average test grade.
-getNumberOfTests(prompt)
+getNumberOfTests()
 for i in range(n):
     while 1:
         test = float(input('Please enter test marks: '))
@@ -150,12 +150,11 @@ AvgTests = i/n
 #Prompt and get the final grade
 #Validate the input as a float between 0 and 100
 while 1:
-    getWeightOfFinal(prompt)
+    getWeightOfFinal()
     if final >= 0 and final <= 100:
         break 
 #Calculate and display the final numeric grade (call the appropriate function)
 calculateNumericGrade(AvgAssignments,AvgTests,final,wAssign,wMidTerm,wFinal)
 #Calculate and display the final alphabetical grade (call the appropriate function)
 calculateLetterGrade(numericGrade)
-
 
