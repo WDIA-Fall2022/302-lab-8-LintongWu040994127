@@ -123,9 +123,9 @@ def calculateLetterGrade(numericGrade):
 #Check the sum of weight values is 1 (call the appropriate function)
 #Repeat the last four lines if not equal to 1
 while 1:
-    getWeightOfAssignments()
-    getWeightOfMidTerms()
-    getWeightOfFinal()
+    wAssign = getWeightOfAssignments()
+    wMidTerm = getWeightOfMidTerms()
+    wFinal = getWeightOfFinal()
     if wAssign + wMidTerm + wFinal == 1: 
         break 
 #Get the average grade obtained on the assignments
@@ -138,14 +138,15 @@ while 1:
 #Prompt the user for each test grades and accumulate the value
 #Validate the input as a float between 0 and 100
 #Calculate the average test grade.
-getNumberOfTests()
-for i in range(n):
+num = getNumberOfTests()
+total = 0
+for i in range(num):
     while 1:
-        test = float(input('Please enter test marks: '))
-        if test >= 0 and test <= 100:
-            i += k 
+        marks = float(input('Please enter Test marks: '))
+        if marks>=0 and marks<=100:
+            total += marks 
             break 
-AvgTests = i/n 
+AvgTests = total/num  
 
 #Prompt and get the final grade
 #Validate the input as a float between 0 and 100
